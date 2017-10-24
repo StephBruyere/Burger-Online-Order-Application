@@ -4,7 +4,7 @@
             <h1> Eat-Da-Burger! </h1>
         </div>
     </div>
-    <div class="panel panel-primary">
+    <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title"><strong>Menu</strong></h3>
             <div class="row"></div>
@@ -12,10 +12,13 @@
         <div class="panel-body">
             {{#each data}} {{#unless this.devoured}}
             <div class="col-xs-12">
-                <span class="text-left">{{this.burger_name}}
+                
 					<form method="POST" action="/burger/update?_method=PUT" class="button-size">
-						<input input type="hidden" type="text" name="burger_id" value={{this.id}}>
-						<button type="submit" class="btn btn-secondary pull-right btn-sm">Order</button>
+						<img class="shrink" src="assets/img/cuteburger.png"></img>
+                        <span class="text-left">{{this.burger_name}}
+                        <input input type="hidden" type="text" name="burger_id" value={{this.id}}>
+                        
+						<button type="submit" class="btn btn-success pull-right btn-sm">Order</button>
 					</form></span>
             </div>
             {{/unless}} {{/each}}
@@ -24,13 +27,13 @@
 </div>
 </div>
 <div class="container">
-    <div class="panel panel-primary">
+    <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title"><strong>Customize your Burger!</strong></h3></div>
         <div class="row">
             <div class="col-xs-12 text-center enter_section">
                 <div class="panel-body">
-                    <p class="text-left">Place a custom burger order!</p>
+                    <p class="text-left bold">Place a custom burger order!</p>
                     <form action="/burger/create" method="POST">
                         <input type="text" class="form-control" name="burger_name" value="" id="enter_text">
                         <br>
@@ -43,7 +46,7 @@
 </div>
 
 <div class="container">
-    <div class="panel panel-primary">
+    <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title"><strong>View your order</strong></h3></div>
         <div class="row">
@@ -55,7 +58,7 @@
                             <span class="text-left">{{this.burger_name}}
 					<form method="POST" action="/burger/{{this.burger_name}}?_method=DELETE" class="form-inline">
 						<input input type="hidden" type="text" name="burger_id" value={{this.id}}>
-						<button type="submit" class="btn btn-secondary pull-right btn-sm">Delete</button>
+						<button type="submit" class="btn btn-danger pull-right btn-sm">Delete</button>
 					</form></span>
                         </div>
                         {{/if}} {{/each}}
