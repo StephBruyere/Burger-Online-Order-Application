@@ -60,7 +60,9 @@ var orm = {
   },
 
   delete: function(table, objColVals, condition, cb) {
-    var queryString = "DELETE FROM" + table;
+    var queryString = "UPDATE " + table;
+    queryString += " SET ";
+    queryString += objToSql(objColVals);
     queryString += " WHERE ";
     queryString += condition;
     connection.query(queryString, function(err, result) {
@@ -69,7 +71,7 @@ var orm = {
       }
       cb(result);
     });
-  }
+  },
 
 };
 

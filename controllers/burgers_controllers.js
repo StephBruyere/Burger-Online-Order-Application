@@ -24,11 +24,10 @@ router.put("/burger/update", function(req, res) {
  });
 });
 
-router.delete('/burger/update/:id', function(req, res) {
-	var condition = 'burger_id = ' + req.params.id;
-	burger.delete(condition, function() {
-		res.redirect('/');
-	});
+router.post('/burger/delete', function(req, res) {
+	 burger.delete(req.body.burger_id, function(result) {
+  res.redirect("/");
+ });
 });
 
 module.exports = router;

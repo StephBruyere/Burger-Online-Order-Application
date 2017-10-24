@@ -6,7 +6,7 @@ var burger = {
       cb(res);
     });
   },
-  create: function(name, cb) {
+  create: function(id, cb) {
     orm.create("burger", [
       "burger_name", "devoured"
     ], [
@@ -19,12 +19,13 @@ var burger = {
       devoured: true
     }, condition, cb);
   },
-   delete: function(condition, cb) {
-   orm.delet(this.table, condition, function(res) {
-      cb(res);
-    });
-  }
-};
+   delete: function(id, cb) {
+   var condition = "id=" + id;
+    orm.delete("burger", {
+      devoured: true
+    }, condition, cb);
+  },
+}
 
 module.exports = burger;
 
