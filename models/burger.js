@@ -19,6 +19,12 @@ var burger = {
       devoured: true
     }, condition, cb);
   },
+   delete: function(condition, cb) {
+   orm.delet(this.table, condition, function(res) {
+      cb(res);
+    });
+  }
 };
+
 module.exports = burger;
 
