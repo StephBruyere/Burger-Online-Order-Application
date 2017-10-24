@@ -53,11 +53,11 @@
                     <div class="col-xs-12">
                         {{#each data}} {{#if this.devoured}}
                         <div class="col-xs-12 spacer">
-						<form method="DELETE" action="/burger/update?_method=DELETE" class="button-size">
+						<form method="POST" action=action="/burger/update/{{burger_id}}?_method=DELETE" class="button-size">
 						<img class="shrink" src="assets/img/cuteburger.png"></img>
                         <input input type="hidden" type="text" name="burger_id" value={{this.id}}>
                         <span class="text-left">{{this.burger_name}} </span>
-						<button type="submit" class="btn btn-danger pull-right btn-sm">Delete</button>
+					<!--	<button type="submit" id= "burger-id{{burger_id}}" class="btn btn-danger pull-right btn-sm">Delete</button> -->
 					</form> <hr>
                         </div>
                         {{/if}} {{/each}}

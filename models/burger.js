@@ -1,6 +1,8 @@
 var orm = require("../config/orm.js");
 
 var burger = {
+  table: 'burger',
+  
   all: function(cb) {
     orm.all("burger", function(res) {
       cb(res);
@@ -20,10 +22,8 @@ var burger = {
     }, condition, cb);
   },
    delete: function(id, cb) {
-   var condition = "id=" + id;
-    orm.delete("burger", {
-      devoured: true
-    }, condition, cb);
+   orm.delete(this.table, condition, function(res) {
+      cb(res);
   },
 }
 
