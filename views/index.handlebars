@@ -11,13 +11,11 @@
         </div>
         <div class="panel-body">
             {{#each data}} {{#unless this.devoured}}
-            <div class="col-xs-12">
-                
+            <div class="col-xs-12 spacer">
 					<form method="POST" action="/burger/update?_method=PUT" class="button-size">
 						<img class="shrink" src="assets/img/cuteburger.png"></img>
                         <span class="text-left">{{this.burger_name}}
                         <input input type="hidden" type="text" name="burger_id" value={{this.id}}>
-                        
 						<button type="submit" class="btn btn-success pull-right btn-sm">Order</button>
 					</form></span>
             </div>
@@ -54,12 +52,14 @@
                 <div class="panel-body">
                     <div class="col-xs-12">
                         {{#each data}} {{#if this.devoured}}
-                        <div class="col-xs-12">
-                            <span class="text-left">{{this.burger_name}}
+                        <div class="col-xs-12 spacer">
+                            
 					<form method="POST" action="/burger/{{this.burger_name}}?_method=DELETE" class="form-inline">
 						<input input type="hidden" type="text" name="burger_id" value={{this.id}}>
+                        <img class="shrink" src="assets/img/cuteburger.png"></img>
+                        <span class="text-left">{{this.burger_name}} </span>
 						<button type="submit" class="btn btn-danger pull-right btn-sm">Delete</button>
-					</form></span>
+					</form>
                         </div>
                         {{/if}} {{/each}}
                     </div>
