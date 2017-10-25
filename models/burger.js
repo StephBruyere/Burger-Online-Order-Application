@@ -1,13 +1,11 @@
 var orm = require("../config/orm.js");
-
 var burger = {
-
     all: function(cb) {
         orm.all("burger", function(res) {
             cb(res);
         });
     },
-    create: function(id, cb) {
+    create: function(name, cb) {
         orm.create("burger", [
             "burger_name", "devoured"
         ], [
@@ -20,10 +18,5 @@ var burger = {
             devoured: true
         }, condition, cb);
     },
-    delete: function(id, cb) {
-        orm.delete(this.table, condition, function(res) {
-            cb(res);
-        })
-    }
 }
 module.exports = burger;

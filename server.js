@@ -7,7 +7,7 @@ var PORT = process.env.PORT || 3000;
 //express
 var app = express();
 app.use(express.static(__dirname + "/public"));
-app.use(bodyparser.urlencoded({extended: false}));
+app.use(bodyparser.urlencoded({ extended: false }));
 
 //method-override
 app.use(method("_method"));
@@ -22,7 +22,6 @@ var routes = require("./controllers/burgers_controllers.js");
 app.use("/", routes);
 app.use("/update", routes);
 app.use("/create", routes);
-app.use("/delete", routes);
 
 app.listen(PORT, function() {
     console.log("listening at port:" + PORT);
