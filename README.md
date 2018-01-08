@@ -8,4 +8,4 @@ This application allows the user to interact with a mock resturant ordering syst
 * Method-Override
 * Body Parser
 
-![Screenshot](customBurger.gif)
+![demo](customBurger.gif)
